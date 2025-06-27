@@ -6,14 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 using EComunidadeMVC.Models;
 using Newtonsoft.Json;
 using System.Text;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 06e3c146928f8296d0ca2cdde73da3c29b471e8d
 
 namespace EComunidadeMVC.Controllers
 {
     public class EventosController : Controller
     {
+<<<<<<< HEAD
         public string uriBase = "http://ecomunidade.somee.com/EComunidadeApi/eventos";
 
         public async Task<IActionResult> Index()
+=======
+        public string uriBase = "http://ecomunidade.somee.com/ecomunidadeapi/eventos";
+   public async Task<IActionResult> Index()
+>>>>>>> 06e3c146928f8296d0ca2cdde73da3c29b471e8d
         {
             List<EventoViewModel> eventos = new();
 
@@ -24,7 +33,11 @@ namespace EComunidadeMVC.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
+<<<<<<< HEAD
                     eventos = JsonConvert.DeserializeObject<List<EventoViewModel>>(content) ?? new();
+=======
+                    eventos = JsonConvert.DeserializeObject<List<EventoViewModel>>(content);
+>>>>>>> 06e3c146928f8296d0ca2cdde73da3c29b471e8d
                 }
                 else
                 {
@@ -63,6 +76,11 @@ namespace EComunidadeMVC.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
+<<<<<<< HEAD
+=======
+            EventoViewModel evento;
+
+>>>>>>> 06e3c146928f8296d0ca2cdde73da3c29b471e8d
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.GetAsync($"{uriBase}/{id}");
@@ -74,6 +92,7 @@ namespace EComunidadeMVC.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
+<<<<<<< HEAD
                 var evento = JsonConvert.DeserializeObject<EventoViewModel>(content);
                 if (evento == null)
                 {
@@ -178,6 +197,12 @@ namespace EComunidadeMVC.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+=======
+                evento = JsonConvert.DeserializeObject<EventoViewModel>(content);
+            }
+
+            return View(evento);
+>>>>>>> 06e3c146928f8296d0ca2cdde73da3c29b471e8d
         }
     }
 }
