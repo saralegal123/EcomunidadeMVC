@@ -1,0 +1,47 @@
+@model IEnumerable<EComunidadeMVC.Models.EventoViewModel>
+@{
+    ViewBag.Title = "Eventos";
+}
+
+<h2 class="mb-4">Lista de Eventos</h2>
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">@TempData["MensagemErro"]</div>
+}
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["MensagemSucesso"]</div>
+}
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Criar Novo Evento</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Título</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Local</th>
+            <th>Situação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evento in Model)
+        {
+            <tr>
+                <td>@evento.TituloEvento</td>
+                <td>@evento.DataEvento?.ToString("dd/MM/yyyy")</td>
+                <td>@evento.HoraEvento</td>
+                <td>@evento.LocalEvento</td>
+                <td>@evento.Situacao</td>
+                <td>
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@evento.IdEvento">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

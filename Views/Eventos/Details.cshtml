@@ -1,0 +1,21 @@
+@model EComunidadeMVC.Models.EventoViewModel
+@{
+    ViewBag.Title = "Detalhes do Evento";
+}
+
+<h2>Detalhes do Evento</h2>
+
+<table class="table">
+    <tr><th>ID:</th><td>@Model.IdEvento</td></tr>
+    <tr><th>Título:</th><td>@Model.TituloEvento</td></tr>
+    <tr><th>Descrição:</th><td>@Model.DescricaoEvento</td></tr>
+    <tr><th>Local:</th><td>@Model.LocalEvento</td></tr>
+    <tr><th>Data:</th><td>@Model.DataEvento</td></tr>
+    <tr><th>Hora:</th><td>@Model.HoraEvento</td></tr>
+    <tr><th>Voluntários:</th><td>@Model.QtVoluntarios</td></tr>
+    <tr><th>Duração:</th><td>@Model.DuracaoEvento</td></tr>
+    <tr><th>Pontuação:</th><td>@Model.PontuacaoEvento</td></tr>
+    <tr><th>Situação:</th><td>@Model.Situacao</td></tr>
+</table>
+
+<p>@Html.ActionLink("Voltar", "Index")</p>

@@ -1,0 +1,46 @@
+﻿@model EComunidadeMVC.Models.EventoViewModel
+@{
+    ViewBag.Title = "Criar Evento";
+}
+
+<h2>Criar Evento</h2>
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">@TempData["MensagemErro"]</div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Título</label>
+        @Html.TextBoxFor(m => m.TituloEvento, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Data</label>
+        @Html.TextBoxFor(m => m.DataEvento, new { @class = "form-control", type = "date" })
+    </div>
+
+    <div class="form-group">
+        <label>Hora</label>
+        @Html.TextBoxFor(m => m.HoraEvento, new { @class = "form-control", type = "time" })
+    </div>
+
+    <div class="form-group">
+        <label>Local</label>
+        @Html.TextBoxFor(m => m.LocalEvento, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Quantidade de Voluntários</label>
+        @Html.TextBoxFor(m => m.QtVoluntarios, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Pontuação</label>
+        @Html.TextBoxFor(m => m.PontuacaoEvento, new { @class = "form-control" })
+    </div>
+
+    <input type="submit" value="Salvar" class="btn btn-success" />
+}

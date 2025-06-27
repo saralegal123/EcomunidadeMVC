@@ -13,7 +13,7 @@ namespace EComunidadeMVC.Models
 
         public string? DescricaoEvento { get; set; }
 
-        public string? DataEvento { get; set; }
+        public DateTime? DataEvento { get; set; }
 
         public string? HoraEvento { get; set;}
 
